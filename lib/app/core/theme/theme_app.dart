@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hacom_app_test/app/core/theme/app_colors.dart';
+import 'package:hacom_app_test/app/core/theme/input_theme.dart';
 import 'package:hacom_app_test/app/core/theme/light_colors.dart';
 import '../utils/app_fonts_util.dart';
 import 'button_theme.dart';
@@ -32,6 +33,10 @@ class ThemeApp {
       selectionColor: _lightColors.surfaceAlt,
     ),
     cardColor: _lightColors.surfaceCard,
+    inputDecorationTheme: InputThemeApp.inputDecorationTheme(
+      primaryColor: _lightColors.primary,
+      secondaryColor: _lightColors.primaryLight,
+    ),
     elevatedButtonTheme: ButtonThemeApp.elevatedButtonThemeData(_lightColors),
     appBarTheme: const AppBarTheme(elevation: 0),
   );

@@ -14,7 +14,7 @@ class ButtonThemeApp {
           if (states.contains(WidgetState.disabled)) {
             return appColor.primary.withValues(alpha: 0.4);
           }
-          return appColor.primary;
+          return appColor.primaryDark;
         }),
         foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
         overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
@@ -28,7 +28,7 @@ class ButtonThemeApp {
           const EdgeInsets.symmetric(horizontal: 14),
         ),
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         ),
         textStyle: WidgetStateProperty.resolveWith<TextStyle>((
           Set<WidgetState> states,

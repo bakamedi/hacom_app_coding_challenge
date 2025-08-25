@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/utils/assets_constant.dart';
 import 'package:hacom_app_test/app/presentation/global/extensions/widgets_ext.dart';
+import 'package:hacom_app_test/app/presentation/global/utils/router_util.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/background/background_scaffold_gw.dart';
+import 'package:hacom_app_test/app/presentation/router/app_routes/dashboard_route.dart';
 
 class SignInView extends StatelessWidget {
   const SignInView({super.key, required this.adaptiveScreen});
@@ -53,7 +55,7 @@ class SignInView extends StatelessWidget {
               TextFormField(keyboardType: TextInputType.number),
               10.h,
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => RouterUtil.push(DashboardRoute.path),
                 child: Text(
                   'Ingresar',
                   style: TextStyle(

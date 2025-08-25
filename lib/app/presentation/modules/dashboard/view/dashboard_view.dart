@@ -21,6 +21,7 @@ class DashboardView extends StatelessWidget {
             foregroundColor: Colors.white,
           ),
           GridView.count(
+            physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.only(
               top: adaptiveScreen.hpx(150),
               left: adaptiveScreen.wpx(20),

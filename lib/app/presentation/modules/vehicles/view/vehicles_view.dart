@@ -168,6 +168,8 @@ class VehiclesView extends StatelessWidget {
                     color: Colors.green,
                   ),
                 ]),
+              ).sliverPadding(
+                EdgeInsets.symmetric(horizontal: adaptiveScreen.wpx(9)),
               ),
             ],
           ),

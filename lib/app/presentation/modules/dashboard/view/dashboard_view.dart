@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
+import 'package:hacom_app_test/app/presentation/global/utils/router_util.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/background/background_scaffold_gw.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/cards/card_item_gw.dart';
+import 'package:hacom_app_test/app/presentation/router/app_routes/vehicles_route.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key, required this.adaptiveScreen});
@@ -32,9 +34,7 @@ class DashboardView extends StatelessWidget {
                 adaptiveScreen: adaptiveScreen,
                 title: "Supervisor",
                 icon: Icons.local_shipping,
-                onTap: () {
-                  // Navegar o acción
-                },
+                onTap: () => RouterUtil.push(VehiclesRoute.path),
               ),
               CardItemGW(
                 adaptiveScreen: adaptiveScreen,

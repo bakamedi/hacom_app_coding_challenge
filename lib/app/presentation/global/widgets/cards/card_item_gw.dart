@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/utils/app_color_util.dart';
+import 'package:hacom_app_test/app/presentation/global/extensions/widgets_ext.dart';
 
 class CardItemGW extends StatelessWidget {
   const CardItemGW({
@@ -20,14 +21,15 @@ class CardItemGW extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Card(
-        elevation: 6,
+        elevation: 3,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: SizedBox(
-          width: 120,
-          height: 120,
+          width: adaptiveScreen.wpx(120),
+          height: adaptiveScreen.hpx(120),
           child: DecoratedBox(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.5)),
               gradient: LinearGradient(
                 colors: [
                   AppColorUtil().primary.withValues(alpha: 0.8),
@@ -41,12 +43,12 @@ class CardItemGW extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(icon, size: adaptiveScreen.sfp(95), color: Colors.white),
-                const SizedBox(height: 12),
+                12.h,
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 16,
+                  style: TextStyle(
+                    fontSize: adaptiveScreen.sfp(16),
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),

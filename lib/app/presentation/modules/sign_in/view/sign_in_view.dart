@@ -55,7 +55,8 @@ class SignInView extends StatelessWidget {
               TextFormField(keyboardType: TextInputType.number),
               10.h,
               ElevatedButton(
-                onPressed: () => RouterUtil.push(DashboardRoute.path),
+                onPressed: () =>
+                    RouterUtil.pushReplacement(DashboardRoute.path),
                 child: Text(
                   'Ingresar',
                   style: TextStyle(

@@ -43,16 +43,18 @@ android {
     productFlavors {
         create("dev") {
             dimension = "env"
-            // applicationIdSuffix = "."
+            applicationIdSuffix = ".dev"
             // versionNameSuffix = "-dev"
         }
         create("staging") {
             dimension = "env"
+            applicationIdSuffix = ".staging"
             // applicationIdSuffix = ".staging"
             // versionNameSuffix = "-staging"
         }
         create("prod") {
             dimension = "env"
+            applicationIdSuffix = ".prod"
             // sin sufijos
         }
     }

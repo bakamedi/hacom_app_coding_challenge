@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/utils/assets_constant.dart';
 import 'package:hacom_app_test/app/presentation/global/extensions/widgets_ext.dart';
-import 'package:hacom_app_test/app/presentation/global/widgets/background/backgorund_scaffold_gw.dart';
+import 'package:hacom_app_test/app/presentation/global/widgets/background/background_scaffold_gw.dart';
 
 class SignInView extends StatelessWidget {
   const SignInView({super.key, required this.adaptiveScreen});
@@ -42,7 +42,7 @@ class SignInView extends StatelessWidget {
                   fontSize: adaptiveScreen.sfp(16),
                 ),
               ),
-              TextFormField(),
+              TextFormField(keyboardType: TextInputType.number),
               10.h,
               ElevatedButton(
                 onPressed: () {},

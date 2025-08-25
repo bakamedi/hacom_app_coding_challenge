@@ -28,14 +28,23 @@ class AdaptiveScreen {
   late final double safeBlockVertical;
 
   static AdaptiveScreen of(BuildContext context) => AdaptiveScreen(context);
+  // Pixel-based responsive functions
+  double wpx(double pixels) =>
+      pixels *
+      width /
+      402; // Base width 402px (Dispositivo de ejemplo en figma)
+  double hpx(double pixels) =>
+      pixels *
+      height /
+      874; // Base height 874px (Dispositivo de ejemplo en figma)
+  double dpx(double pixels) =>
+      pixels *
+      diagonal /
+      math.sqrt(math.pow(402, 2) + math.pow(874, 2)); // Base diagonal
 
-  double wp(double percent) => width * percent / 100;
-  double hp(double percent) => height * percent / 100;
-  double dp(double percent) => diagonal * percent / 100;
-
-  double bwh(double percent) => blockSizeHorizontal * percent;
-  double bhp(double percent) => blockSizeVertical * percent;
-
-  double sbwh(double percent) => safeBlockHorizontal * percent;
-  double sbhp(double percent) => safeBlockVertical * percent;
+  // Font-specific responsive function with conservative scaling
+  double sfp(double fontSize) {
+    final scaleFactor = math.min(width / 402, height / 874);
+    return fontSize * scaleFactor.clamp(0.8, 1.2); // Limita entre 80% y 120%
+  }
 }

@@ -11,7 +11,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: adaptiveScreen.hp(20)),
+        margin: EdgeInsets.only(top: adaptiveScreen.hpx(20)),
         child: const CircularLoadingGW(),
       ),
     );

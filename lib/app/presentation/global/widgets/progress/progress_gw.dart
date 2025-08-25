@@ -17,7 +17,7 @@ class CircularLoadingGW extends StatelessWidget {
       return CircularProgressIndicator(color: color).center();
     } else {
       return CupertinoActivityIndicator(
-        radius: adaptiveScreen.dp(2.2),
+        radius: adaptiveScreen.sfp(2.2),
         color: color ?? Colors.white,
       ).center();
     }

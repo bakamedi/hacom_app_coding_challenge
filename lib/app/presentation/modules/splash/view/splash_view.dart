@@ -10,7 +10,7 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackgorundScaffoldGW(
+    return BackgroundScaffoldGW(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

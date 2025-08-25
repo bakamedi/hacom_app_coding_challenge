@@ -11,7 +11,7 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackgorundScaffoldGW(
+    return BackgroundScaffoldGW(
       body: Stack(
         children: [
           Image.asset(AssetsConstant.logo).padding(
@@ -21,6 +21,14 @@ class SignInView extends StatelessWidget {
               right: adaptiveScreen.wpx(40),
             ),
           ),
+          AppBar(
+            title: Text(
+              'Supervisor de flota - Livetrack',
+              style: TextStyle(color: Colors.white),
+            ),
+            centerTitle: false,
+            backgroundColor: Colors.transparent,
+          ).padding(EdgeInsets.symmetric(horizontal: adaptiveScreen.hpx(20))),
           Column(
             spacing: adaptiveScreen.hpx(8),
             mainAxisAlignment: MainAxisAlignment.center,

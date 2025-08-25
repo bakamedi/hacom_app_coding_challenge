@@ -40,7 +40,7 @@ class CardItemGW extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon, size: adaptiveScreen.sfp(60), color: Colors.white),
+                Icon(icon, size: adaptiveScreen.sfp(95), color: Colors.white),
                 const SizedBox(height: 12),
                 Text(
                   title,

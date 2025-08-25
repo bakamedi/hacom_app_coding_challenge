@@ -1,39 +1,28 @@
-import 'dart:ui';
+// archivo: lib/theme/app_colors.dart
 
+import 'package:flutter/material.dart';
+
+/// Interfaz abstracta para definir los colores de la aplicación.
+/// Permite implementar diferentes temas (ej. claro, oscuro, personalizado).
 abstract class AppColors {
   Color get primary;
-  Color get textTitle;
-  Color get textRegular;
-  Color get textLabel;
-  Color get body;
-  Color get textContent;
-  Color get inputText;
-  Color get iconSuccessStrong;
+  Color get onPrimary;
 
-  Color get brandBlue;
-  Color get iconBlue;
-  Color get blueSurface;
+  Color get primaryLight;
+  Color get primaryDark;
 
-  Color get white;
+  Color get surface;
+  Color get surfaceAlt;
+  Color get surfaceCard;
 
-  Color get brandGrey;
-  Color get line;
-  Color get disabled;
-  Color get dot;
-
-  Color get focus;
-  Color get brandPurple;
-  Color get iconPurple;
-  Color get borderPurple;
-  Color get inputBackground;
-
-  Color get errText;
-  Color get errBackground;
-
-  Color get borderGreen;
-  Color get greenBackground;
-  Color get successIcon;
-  Color get greenIcon;
+  Color get onSurface;
+  Color get onSurfaceLight;
+  Color get onSurfaceDisabled;
 
   Color get warning;
+  Color get success;
+  Color get error;
+
+  Color get icon;
+  Color get divider;
 }

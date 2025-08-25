@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hacom_app_test/app/core/utils/app_color_util.dart';
 
 class InputThemeApp {
   static InputDecorationTheme inputDecorationTheme({
@@ -8,7 +7,7 @@ class InputThemeApp {
   }) {
     return InputDecorationTheme(
       filled: true,
-      fillColor: AppColorUtil().inputBackground,
+      fillColor: Colors.white,
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),

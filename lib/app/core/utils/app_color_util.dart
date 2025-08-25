@@ -14,89 +14,50 @@ class AppColorUtil extends AppColors {
   static final _isDarkMode =
       Theme.of(_currentContext!).brightness == Brightness.dark;
 
-  final AppColors _colors = _isDarkMode ? DarkColors() : LightColors();
+  final AppColors _colors = _isDarkMode ? DarkAppColors() : LightAppColors();
 
   @override
-  Color get blueSurface => _colors.blueSurface;
+  Color get divider => _colors.divider;
 
   @override
-  Color get body => _colors.body;
+  Color get error => _colors.error;
 
   @override
-  Color get borderGreen => _colors.borderGreen;
+  Color get icon => _colors.icon;
 
   @override
-  Color get borderPurple => _colors.borderPurple;
+  Color get onPrimary => _colors.onPrimary;
 
   @override
-  Color get brandBlue => _colors.brandBlue;
+  Color get onSurface => _colors.onSurface;
 
   @override
-  Color get brandGrey => _colors.brandGrey;
+  Color get onSurfaceDisabled => _colors.onSurfaceDisabled;
 
   @override
-  Color get brandPurple => _colors.brandPurple;
-
-  @override
-  Color get disabled => _colors.disabled;
-
-  @override
-  Color get dot => _colors.dot;
-
-  @override
-  Color get errBackground => _colors.errBackground;
-
-  @override
-  Color get errText => _colors.errText;
-
-  @override
-  Color get focus => _colors.focus;
-
-  @override
-  Color get greenBackground => _colors.greenBackground;
-
-  @override
-  Color get greenIcon => _colors.greenIcon;
-
-  @override
-  Color get iconBlue => _colors.iconBlue;
-
-  @override
-  Color get iconPurple => _colors.iconPurple;
-
-  @override
-  Color get iconSuccessStrong => _colors.iconSuccessStrong;
-
-  @override
-  Color get inputBackground => _colors.inputBackground;
-
-  @override
-  Color get inputText => _colors.inputText;
-
-  @override
-  Color get line => _colors.line;
+  Color get onSurfaceLight => _colors.onSurfaceLight;
 
   @override
   Color get primary => _colors.primary;
 
   @override
-  Color get successIcon => _colors.successIcon;
+  Color get primaryDark => _colors.primaryDark;
 
   @override
-  Color get textContent => _colors.textContent;
+  Color get primaryLight => _colors.primaryLight;
 
   @override
-  Color get textLabel => _colors.textLabel;
+  Color get success => _colors.success;
 
   @override
-  Color get textRegular => _colors.textRegular;
+  Color get surface => _colors.surface;
 
   @override
-  Color get textTitle => _colors.textTitle;
+  Color get surfaceAlt => _colors.surfaceAlt;
+
+  @override
+  Color get surfaceCard => _colors.surfaceCard;
 
   @override
   Color get warning => _colors.warning;
-
-  @override
-  Color get white => _colors.white;
 }

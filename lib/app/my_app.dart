@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hacom_app_test/app/core/theme/theme_app.dart';
 import 'package:hacom_app_test/app/presentation/router/go_router_provider.dart';
 
 class MyApp extends StatelessWidget {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: goRouter,
-      //theme: ThemeApp.lightTheme,
+      theme: ThemeApp.lightTheme,
       //darkTheme: ThemeApp.darkTheme,
       themeMode: ThemeMode.system,
       themeAnimationCurve: Curves.easeInOutCubicEmphasized,

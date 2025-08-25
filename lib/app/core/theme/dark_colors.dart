@@ -3,88 +3,49 @@ import 'dart:ui';
 import 'app_colors.dart';
 import 'hex_color.dart';
 
-class DarkColors extends AppColors {
+class DarkAppColors implements AppColors {
   @override
-  Color get primary => HexColor('#1F1F1F'); // fondo principal gris oscuro suave
+  Color get primary => HexColor("#00695C"); // Verde oscuro más brillante para destacar
 
   @override
-  Color get textTitle => HexColor('#F2F2F2'); // casi blanco para títulos
+  Color get onPrimary => HexColor("#FFFFFF"); // Blanco sobre primario
 
   @override
-  Color get textRegular => HexColor('#C0C0C0');
+  Color get primaryLight => HexColor("#339688"); // Versión clara del primario
 
   @override
-  Color get textLabel => HexColor('#A8A8A8');
+  Color get primaryDark => HexColor("#003C33"); // Aún más oscuro para sombras
 
   @override
-  Color get body => HexColor('#E0E0E0');
+  Color get surface => HexColor("#121212"); // Fondo principal oscuro (Material Design)
 
   @override
-  Color get textContent => HexColor('#BDBDBD');
+  Color get surfaceAlt => HexColor("#1E1E1E"); // Fondo alternativo (filas)
 
   @override
-  Color get inputText => HexColor('#D0D0D0');
+  Color get surfaceCard => HexColor("#2A2A2A"); // Tarjetas o modales
 
   @override
-  Color get iconSuccessStrong => HexColor('#BDBDBD');
+  Color get onSurface => HexColor("#E0E0E0"); // Texto principal (gris claro)
 
   @override
-  Color get brandBlue => HexColor('#5C85FF');
+  Color get onSurfaceLight => HexColor("#9E9E9E"); // Texto secundario
 
   @override
-  Color get iconBlue => HexColor('#6A9BFF');
+  Color get onSurfaceDisabled => HexColor("#616161"); // Texto deshabilitado
 
   @override
-  Color get blueSurface => HexColor('#3D5AFE');
+  Color get warning => HexColor("#FF3B00"); // Naranja rojizo (mismo que en modo claro, visible)
 
   @override
-  Color get white => HexColor('#2A2A2A'); // fondo alterno gris oscuro
+  Color get success => HexColor("#4CAF50"); // Verde claro para éxito (mejor contraste en oscuro)
 
   @override
-  Color get brandGrey => HexColor('#999999');
+  Color get error => HexColor("#CF6679"); // Rojo claro (Material Design error en oscuro)
 
   @override
-  Color get line => HexColor('#444444'); // líneas divisoras oscuras
+  Color get icon => HexColor("#EEEEEE"); // Iconos casi blancos
 
   @override
-  Color get disabled => HexColor('#555555');
-
-  @override
-  Color get dot => HexColor('#666666');
-
-  @override
-  Color get focus => HexColor('#3B2F36'); // fondo de foco tenue
-
-  @override
-  Color get brandPurple => HexColor('#AB47BC');
-
-  @override
-  Color get iconPurple => HexColor('#CE93D8');
-
-  @override
-  Color get borderPurple => HexColor('#BA68C8');
-
-  @override
-  Color get inputBackground => HexColor('#2F2F2F'); // gris más claro para inputs
-
-  @override
-  Color get errText => HexColor('#FF8A80');
-
-  @override
-  Color get errBackground => HexColor('#4E2E2E');
-
-  @override
-  Color get borderGreen => HexColor('#2E7D32');
-
-  @override
-  Color get greenBackground => HexColor('#3E4F41');
-
-  @override
-  Color get successIcon => HexColor('#66BB6A');
-
-  @override
-  Color get greenIcon => HexColor('#81C784');
-
-  @override
-  Color get warning => HexColor('#FFA000');
+  Color get divider => HexColor("#383838"); // Línea divisoria sutil
 }

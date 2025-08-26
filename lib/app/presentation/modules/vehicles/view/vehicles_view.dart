@@ -3,6 +3,7 @@ import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/utils/app_color_util.dart';
 import 'package:hacom_app_test/app/presentation/global/extensions/widgets_ext.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/list_item/list_item_gw.dart';
+import 'package:hacom_app_test/app/presentation/modules/vehicles/util/request_map.dart';
 
 class VehiclesView extends StatelessWidget {
   const VehiclesView({super.key, required this.adaptiveScreen});
@@ -185,7 +186,7 @@ class VehiclesView extends StatelessWidget {
                 bottom: adaptiveScreen.hpx(40),
               ),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => requestMap(),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(
                     vertical: adaptiveScreen.hpx(14),

@@ -1,7 +1,7 @@
 // lib/core/utils/navigation_utils.dart
 
 import 'package:flutter/material.dart';
-import '../../router/go_router_provider.dart';
+import 'package:hacom_app_test/app/presentation/router/go_router_provider.dart';
 
 abstract class RouterUtil {
   static final _router = goRouterProvider.read();

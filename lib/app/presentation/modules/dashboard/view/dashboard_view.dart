@@ -3,6 +3,7 @@ import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/presentation/global/utils/router_util.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/background/background_scaffold_gw.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/cards/card_item_gw.dart';
+import 'package:hacom_app_test/app/presentation/router/app_routes/alerts_route.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/vehicles_route.dart';
 
 class DashboardView extends StatelessWidget {
@@ -32,16 +33,16 @@ class DashboardView extends StatelessWidget {
             mainAxisSpacing: 16,
             children: [
               CardItemGW(
+                onTap: () => RouterUtil.push(VehiclesRoute.path),
                 adaptiveScreen: adaptiveScreen,
                 title: "Supervisor",
                 icon: Icons.local_shipping,
-                onTap: () => RouterUtil.push(VehiclesRoute.path),
               ),
               CardItemGW(
+                onTap: () => RouterUtil.push(AlertsRoute.path),
                 adaptiveScreen: adaptiveScreen,
                 title: "Notificaciones",
                 icon: Icons.notifications,
-                onTap: () {},
               ),
               CardItemGW(
                 adaptiveScreen: adaptiveScreen,

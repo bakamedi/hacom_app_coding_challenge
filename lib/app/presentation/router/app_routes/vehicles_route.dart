@@ -9,7 +9,7 @@ class VehiclesRoute {
     return GoRoute(
       path: path,
       name: path,
-      builder: (context, __) {
+      builder: (context, _) {
         final AdaptiveScreen adaptiveScreen = AdaptiveScreen(context);
 
         return VehiclesView(adaptiveScreen: adaptiveScreen);

@@ -38,4 +38,42 @@ abstract class DialogsUtil {
       );
     });
   }
+
+  static void simple({
+    required String title,
+    required String message,
+    required VoidCallback onConfirm,
+  }) {
+    final context = _navigatorKeyState.state.navigatorKey!.currentContext;
+    if (context == null) return;
+
+    showDialog<void>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Row(spacing: 8, children: [Icon(Icons.logout), Text(title)]),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () => RouterUtil.pop(), // cancelar
+              child: const Text(
+                'Cancelar',
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                RouterUtil.pop(); // cerrar el diálogo
+                onConfirm(); // ejecutar cierre de sesión
+              },
+              child: const Text(
+                'Cerrar Sesión',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }

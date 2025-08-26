@@ -3,6 +3,7 @@ import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/presentation/global/utils/router_util.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/background/background_scaffold_gw.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/cards/card_item_gw.dart';
+import 'package:hacom_app_test/app/presentation/modules/dashboard/utils/close_session.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/alerts_route.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/places_route.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/vehicles_route.dart';
@@ -52,10 +53,10 @@ class DashboardView extends StatelessWidget {
                 icon: Icons.location_city,
               ),
               CardItemGW(
+                onTap: () => closeSession(),
                 adaptiveScreen: adaptiveScreen,
                 title: "Cerrar Sesión",
                 icon: Icons.logout,
-                onTap: () {},
               ),
             ],
           ),

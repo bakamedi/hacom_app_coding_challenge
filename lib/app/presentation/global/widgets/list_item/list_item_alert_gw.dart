@@ -16,52 +16,61 @@ class ListItemAlertGW extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      leading: SizedBox(
-        height: adaptiveScreen.hpx(80),
-        width: adaptiveScreen.wpx(80),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: Colors.black,
-            shape: BoxShape.circle,
-          ),
-          child: Icon(
-            Icons.directions_car,
-            size: 40,
-            color: AppColorUtil().onPrimary,
-          ),
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFFF8F8F8), Color(0xFFE0E0E0)],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
         ),
       ),
-      title: Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const Text("Contador de alertas"),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Icon(
-                Icons.warning_amber_rounded,
-                color: Colors.red,
-                size: adaptiveScreen.sfp(25),
-              ),
-              Text(
-                "$count",
-                style: TextStyle(
-                  fontSize: adaptiveScreen.sfp(14),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Icon(
-                Icons.warning_amber_rounded,
-                color: Colors.red,
-                size: adaptiveScreen.sfp(25),
-              ).padding(EdgeInsets.only(right: adaptiveScreen.wpx(100))),
-            ],
+      child: ListTile(
+        contentPadding: EdgeInsets.zero,
+        leading: SizedBox(
+          height: adaptiveScreen.hpx(80),
+          width: adaptiveScreen.wpx(80),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: Colors.black,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              Icons.directions_car,
+              size: 40,
+              color: AppColorUtil().onPrimary,
+            ),
           ),
-        ],
+        ),
+        title: Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const Text("Contador de alertas"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  Icons.warning_amber_rounded,
+                  color: Colors.red,
+                  size: adaptiveScreen.sfp(25),
+                ),
+                Text(
+                  "$count",
+                  style: TextStyle(
+                    fontSize: adaptiveScreen.sfp(14),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Icon(
+                  Icons.warning_amber_rounded,
+                  color: Colors.red,
+                  size: adaptiveScreen.sfp(25),
+                ).padding(EdgeInsets.only(right: adaptiveScreen.wpx(100))),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

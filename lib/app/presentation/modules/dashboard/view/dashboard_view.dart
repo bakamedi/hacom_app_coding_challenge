@@ -4,6 +4,7 @@ import 'package:hacom_app_test/app/presentation/global/utils/router_util.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/background/background_scaffold_gw.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/cards/card_item_gw.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/alerts_route.dart';
+import 'package:hacom_app_test/app/presentation/router/app_routes/places_route.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/vehicles_route.dart';
 
 class DashboardView extends StatelessWidget {
@@ -45,10 +46,10 @@ class DashboardView extends StatelessWidget {
                 icon: Icons.notifications,
               ),
               CardItemGW(
+                onTap: () => RouterUtil.push(PlacesRoute.path),
                 adaptiveScreen: adaptiveScreen,
                 title: "Lugares",
                 icon: Icons.location_city,
-                onTap: () {},
               ),
               CardItemGW(
                 adaptiveScreen: adaptiveScreen,

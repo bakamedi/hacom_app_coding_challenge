@@ -14,35 +14,72 @@ class AllVehiclesView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, BuilderRef ref) {
     final allVehiclesController = ref.watch(allVehiclesProvider);
-    return FlutterMap(
-      options: MapOptions(
-        initialCenter: LatLng(
-          allVehiclesController.state.latitude,
-          allVehiclesController.state.longitude,
-        ),
-        initialZoom: 10.2,
-      ),
+
+    final limaMarkers = [
+      LatLng(-12.046374, -77.042793), // Plaza Mayor
+      LatLng(-12.121420, -77.034610), // Miraflores
+      LatLng(-12.046373, -77.030590), // Parque Kennedy
+      LatLng(-12.109000, -77.036500), // Barranco
+      LatLng(-12.0721, -77.1236), // San Isidro
+    ];
+    return Stack(
       children: [
-        TileLayer(
-          urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-          userAgentPackageName: "com.example.hacom_app_test",
-        ),
-        MarkerLayer(
-          markers: [
-            Marker(
-              point: LatLng(
-                allVehiclesController.state.latitude,
-                allVehiclesController.state.longitude,
-              ),
-              width: 40,
-              height: 40,
-              child: const Icon(
-                Icons.location_pin,
-                color: Colors.red,
-                size: 40,
-              ),
+        FlutterMap(
+          options: MapOptions(
+            initialCenter: LatLng(
+              allVehiclesController.state.latitude,
+              allVehiclesController.state.longitude,
+            ),
+            initialZoom: 10.2,
+          ),
+          children: [
+            TileLayer(
+              urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+              userAgentPackageName: "com.example.hacom_app_test",
+            ),
+            MarkerLayer(
+              markers: [
+                ...limaMarkers.map(
+                  (point) => Marker(
+                    point: point,
+                    width: 80,
+                    height: 80,
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 2,
+                            vertical: 2,
+                          ),
+                          child: ColoredBox(
+                            color: Colors.blueAccent,
+                            child: Text(
+                              'hola',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Icon(
+                          Icons.navigation,
+                          color: Colors.green,
+                          size: 35,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
+        ),
+        Positioned(
+          top: 16,
+          left: 10,
+          child: SafeArea(child: BackButton(color: Colors.black)),
         ),
       ],
     );

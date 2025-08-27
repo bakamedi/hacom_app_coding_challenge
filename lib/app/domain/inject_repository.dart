@@ -21,4 +21,10 @@ class Repositories {
       storageProvider: StorageInjectProvider.storageInjectProvider.read(),
     ),
   );
+
+  static final vehicleRep = Provider<VehicleRepository>(
+    (ref) => VehicleRepositoryImpl(
+      vehicleProvider: VehicleInjectProvider.vehicleProvider.read(),
+    ),
+  );
 }

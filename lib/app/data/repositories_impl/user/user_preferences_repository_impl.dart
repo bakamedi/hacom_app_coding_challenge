@@ -24,8 +24,6 @@ class UserPreferencesRepositoryImpl extends UserPreferencesRepository {
       await _storageProvider.deleteValue(GlobalNameStorageKeyUtils.TOKEN);
 
       await _storageProvider.deleteAll();
-    } catch (e) {
-      print(e);
-    }
+    } catch (_) {}
   }
 }

@@ -6,6 +6,7 @@ import 'package:hacom_app_test/app/domain/uses_cases/permissions/status_permissi
 import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/get_token_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/log_out_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/save_token_use_case.dart';
+import 'package:hacom_app_test/app/domain/uses_cases/vehicles/get_vehicles_use_case.dart';
 
 class UseCases {
   UseCases._();
@@ -39,5 +40,10 @@ class UseCases {
   static final logOutUseCase = Provider(
     (ref) =>
         LogOutUseCase(userPrefsRepository: Repositories.userPrefsRep.read()),
+  );
+
+  static final getAllVehicles = Provider(
+    (ref) =>
+        GetVehiclesUseCase(vehicleRepository: Repositories.vehicleRep.read()),
   );
 }

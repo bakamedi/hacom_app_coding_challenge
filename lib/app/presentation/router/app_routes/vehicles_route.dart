@@ -3,7 +3,7 @@ import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/presentation/modules/vehicles/view/vehicles_view.dart';
 
 class VehiclesRoute {
-  static const path = '/v';
+  static const path = '/vehicles';
 
   static GoRoute get route {
     return GoRoute(

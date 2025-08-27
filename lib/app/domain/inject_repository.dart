@@ -15,4 +15,10 @@ class Repositories {
       authProvider: AuthInjectProvider.authProvider.read(),
     ),
   );
+
+  static final userPrefsRep = Provider<UserPreferencesRepository>(
+    (ref) => UserPreferencesRepositoryImpl(
+      storageProvider: StorageInjectProvider.storageInjectProvider.read(),
+    ),
+  );
 }

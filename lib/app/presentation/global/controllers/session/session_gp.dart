@@ -8,6 +8,8 @@ final sessionGP = Provider.state<SessionGC, SessionState>(
     SessionState.initialState,
     requestPermissionUseCase: UseCases.requestPermissionUseCase.read(),
     statusPermissionUseCase: UseCases.statusPermissionUseCase.read(),
+    getTokenUseCase: UseCases.getTokenUseCase.read(),
+    saveTokenUseCase: UseCases.saveTokenUseCase.read(),
   ),
   autoDispose: false,
 );

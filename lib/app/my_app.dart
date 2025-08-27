@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/theme/theme_app.dart';
+import 'package:hacom_app_test/app/presentation/global/widgets/loader/loader_gw.dart';
 import 'package:hacom_app_test/app/presentation/router/go_router_provider.dart';
 
 class MyApp extends StatelessWidget {
@@ -10,18 +12,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final adaptiveScreen = AdaptiveScreen(context);
+
     final goRouter = goRouterProvider.read();
 
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: goRouter,
-      theme: ThemeApp.lightTheme,
-      //darkTheme: ThemeApp.darkTheme,
-      themeMode: ThemeMode.system,
-      themeAnimationCurve: Curves.easeInOutCubicEmphasized,
-      localizationsDelegates: _getLocalizationsDelegate(),
-      // supportedLocales: L10nLanguages.all,
-      title: _titleApp,
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          routerConfig: goRouter,
+          theme: ThemeApp.lightTheme,
+          //darkTheme: ThemeApp.darkTheme,
+          themeMode: ThemeMode.system,
+          themeAnimationCurve: Curves.easeInOutCubicEmphasized,
+          localizationsDelegates: _getLocalizationsDelegate(),
+          // supportedLocales: L10nLanguages.all,
+          title: _titleApp,
+        ),
+        LoaderGW(adaptiveScreen: adaptiveScreen),
+      ],
     );
   }
 

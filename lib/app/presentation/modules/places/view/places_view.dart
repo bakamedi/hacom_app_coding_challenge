@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meedu/consumer.dart';
 import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/utils/app_color_util.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/list_item/list_item_place_gw.dart';
+import 'package:hacom_app_test/app/presentation/modules/places/controller/place_provider.dart';
 
-class PlacesView extends StatelessWidget {
+class PlacesView extends ConsumerWidget {
   const PlacesView({super.key, required this.adaptiveScreen});
 
   final AdaptiveScreen adaptiveScreen;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, BuilderRef ref) {
+    final placeController = ref.watch(placeProvider);
     return Scaffold(
       backgroundColor: AppColorUtil().surface,
       body: CustomScrollView(
@@ -41,15 +44,19 @@ class PlacesView extends StatelessWidget {
               ),
             ],
           ),
-
+          if (placeController.state.loading)
+            const SliverFillRemaining(
+              child: Center(child: CircularProgressIndicator()),
+            ),
           // Lista de vehículos
           SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
+              final item = placeController.state.places[index];
               return ListItemPlaceGW(
                 adaptiveScreen: adaptiveScreen,
-                name: "Ubicacion-$index",
+                name: item.name,
               );
-            }, childCount: 10),
+            }, childCount: placeController.state.places.length),
           ),
         ],
       ),

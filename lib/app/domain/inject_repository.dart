@@ -27,4 +27,10 @@ class Repositories {
       vehicleProvider: VehicleInjectProvider.vehicleProvider.read(),
     ),
   );
+
+  static final placeRep = Provider<PlaceRepository>(
+    (ref) => PlaceRepositoryImpl(
+      placeProvider: PlaceInjectProvider.placeProvider.read(),
+    ),
+  );
 }

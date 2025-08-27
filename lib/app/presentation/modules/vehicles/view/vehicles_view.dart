@@ -77,7 +77,6 @@ class VehiclesView extends ConsumerWidget {
                 ),
               ),
 
-              // 👇 acá usamos el estado
               if (vehicleController.state.loading)
                 const SliverFillRemaining(
                   child: Center(child: CircularProgressIndicator()),

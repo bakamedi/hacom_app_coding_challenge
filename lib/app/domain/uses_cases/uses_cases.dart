@@ -7,6 +7,7 @@ import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/get_token_
 import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/log_out_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/save_token_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/vehicles/get_vehicles_use_case.dart';
+import 'package:hacom_app_test/app/domain/uses_cases/places/get_places_use_case.dart';
 
 class UseCases {
   UseCases._();
@@ -45,5 +46,9 @@ class UseCases {
   static final getAllVehicles = Provider(
     (ref) =>
         GetVehiclesUseCase(vehicleRepository: Repositories.vehicleRep.read()),
+  );
+
+  static final getPlaces = Provider(
+    (ref) => GetPlacesUseCase(placeRepository: Repositories.placeRep.read()),
   );
 }

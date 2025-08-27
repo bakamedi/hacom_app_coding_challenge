@@ -13,7 +13,7 @@ void sendLogin() async {
     },
     (success) {
       print(success);
-      RouterUtil.push(DashboardRoute.path);
+      RouterUtil.pushReplacement(DashboardRoute.path);
     },
   );
 }

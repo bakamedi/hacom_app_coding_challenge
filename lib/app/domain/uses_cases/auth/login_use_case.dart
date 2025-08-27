@@ -1,10 +1,9 @@
+import 'package:hacom_app_test/app/core/network/either.dart';
+import 'package:hacom_app_test/app/core/network/handle_failure.dart';
+import 'package:hacom_app_test/app/core/utils/failure_view_data.dart';
+import 'package:hacom_app_test/app/domain/defs/type_defs.dart';
 import 'package:hacom_app_test/app/domain/models/user/login/login_model.dart';
 import 'package:hacom_app_test/app/domain/repositories/auth/auth_repository.dart';
-
-import '../../../core/network/either.dart';
-import '../../../core/network/handle_failure.dart';
-import '../../../core/utils/failure_view_data.dart';
-import '../../../domain/defs/type_defs.dart';
 
 class LoginUseCase {
   LoginUseCase({required AuthRepository authRepository})
@@ -18,8 +17,8 @@ class LoginUseCase {
       (failure) {
         return Left(mapFailureToView(failure));
       },
-      (data) {
-        print(data);
+      (response) {
+        print(response.data);
         return Right('success');
       },
     );

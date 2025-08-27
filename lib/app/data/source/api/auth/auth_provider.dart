@@ -15,7 +15,7 @@ class AuthProvider {
   FutureEither<Failure, DataResponse> login({required Login sendLogin}) async {
     return await _dioHttpProvider.post(
       '/account/login/',
-      body: sendLogin.toJsonString,
+      body: sendLogin.toJsonString(),
       converter: (json) => DataResponse<UserWithToken>.fromJson(
         json as Map<String, dynamic>,
         (dataJson) => UserWithToken.fromJson(dataJson as Map<String, dynamic>),

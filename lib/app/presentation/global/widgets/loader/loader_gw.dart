@@ -29,7 +29,7 @@ class LoaderGW extends ConsumerWidget {
                         child: ColoredBox(
                           color: Colors.black.withValues(alpha: 0.4),
                           child: Transform.scale(
-                            scale: adaptiveScreen.sfp(15),
+                            scale: adaptiveScreen.sfp(4),
                             child: Center(
                               child: CircularProgressIndicator.adaptive(
                                 backgroundColor: Colors.grey,

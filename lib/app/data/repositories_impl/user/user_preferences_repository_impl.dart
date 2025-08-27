@@ -16,4 +16,16 @@ class UserPreferencesRepositoryImpl extends UserPreferencesRepository {
   Future<void> saveToken(String token) async {
     await _storageProvider.writeValue(GlobalNameStorageKeyUtils.TOKEN, token);
   }
+
+  @override
+  Future<void> deleteToken() async {
+    try {
+      await _storageProvider.writeValue(GlobalNameStorageKeyUtils.TOKEN, '');
+      await _storageProvider.deleteValue(GlobalNameStorageKeyUtils.TOKEN);
+
+      await _storageProvider.deleteAll();
+    } catch (e) {
+      print(e);
+    }
+  }
 }

@@ -23,10 +23,25 @@ class StorageProvider {
     }
   }
 
+  Future<void> deleteValue(String key) async {
+    try {
+      await _secureStorage.delete(key: key);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   Future<void> deleteAll() async {
     try {
-      await _secureStorage.deleteAll();
+      await _secureStorage.deleteAll(
+        iOptions: IOSOptions(
+          accessibility: KeychainAccessibility.first_unlock,
+          synchronizable: true,
+        ),
+        aOptions: const AndroidOptions(resetOnError: true),
+      );
     } catch (e) {
+      print(e);
       rethrow;
     }
   }

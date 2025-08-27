@@ -110,7 +110,8 @@ class VehiclesView extends ConsumerWidget {
                 bottom: adaptiveScreen.hpx(40),
               ),
               child: ElevatedButton(
-                onPressed: () => requestMap(),
+                onPressed: () =>
+                    requestMap(vehicles: vehicleController.state.vehicles),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(
                     vertical: adaptiveScreen.hpx(14),

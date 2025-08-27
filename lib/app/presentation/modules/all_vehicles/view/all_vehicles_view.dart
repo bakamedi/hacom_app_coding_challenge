@@ -3,7 +3,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_meedu/consumer.dart';
 import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/presentation/modules/all_vehicles/controller/all_vehicles_provider.dart';
-
 import 'package:latlong2/latlong.dart';
 
 class AllVehiclesView extends ConsumerWidget {
@@ -15,21 +14,15 @@ class AllVehiclesView extends ConsumerWidget {
   Widget build(BuildContext context, BuilderRef ref) {
     final allVehiclesController = ref.watch(allVehiclesProvider);
 
-    final limaMarkers = [
-      LatLng(-12.046374, -77.042793), // Plaza Mayor
-      LatLng(-12.121420, -77.034610), // Miraflores
-      LatLng(-12.046373, -77.030590), // Parque Kennedy
-      LatLng(-12.109000, -77.036500), // Barranco
-      LatLng(-12.0721, -77.1236), // San Isidro
-    ];
+    final vehicles = allVehiclesController.state.vehicles;
+
     return Stack(
       children: [
         FlutterMap(
           options: MapOptions(
-            initialCenter: LatLng(
-              allVehiclesController.state.latitude,
-              allVehiclesController.state.longitude,
-            ),
+            initialCenter: vehicles.isNotEmpty
+                ? LatLng(vehicles.first.latitude, vehicles.first.longitude)
+                : LatLng(-12.046374, -77.042793), // fallback Lima
             initialZoom: 10.2,
           ),
           children: [
@@ -39,22 +32,22 @@ class AllVehiclesView extends ConsumerWidget {
             ),
             MarkerLayer(
               markers: [
-                ...limaMarkers.map(
-                  (point) => Marker(
-                    point: point,
+                ...vehicles.map(
+                  (vehicle) => Marker(
+                    point: LatLng(vehicle.latitude, vehicle.longitude),
                     width: 80,
                     height: 80,
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 2,
                             vertical: 2,
                           ),
                           child: ColoredBox(
-                            color: Colors.blueAccent,
+                            color: Colors.black87,
                             child: Text(
-                              'hola',
+                              vehicle.name, // 👈 nombre del vehículo
                               style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
@@ -63,11 +56,7 @@ class AllVehiclesView extends ConsumerWidget {
                             ),
                           ),
                         ),
-                        const Icon(
-                          Icons.navigation,
-                          color: Colors.green,
-                          size: 35,
-                        ),
+                        Icon(Icons.navigation, color: Colors.green, size: 35),
                       ],
                     ),
                   ),
@@ -79,7 +68,7 @@ class AllVehiclesView extends ConsumerWidget {
         Positioned(
           top: 16,
           left: 10,
-          child: SafeArea(child: BackButton(color: Colors.black)),
+          child: const SafeArea(child: BackButton(color: Colors.black)),
         ),
       ],
     );

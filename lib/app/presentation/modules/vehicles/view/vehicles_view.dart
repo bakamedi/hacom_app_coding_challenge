@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_meedu/consumer.dart';
 import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/utils/app_color_util.dart';
+import 'package:hacom_app_test/app/presentation/global/extensions/vehicle_ext.dart';
 import 'package:hacom_app_test/app/presentation/global/extensions/widgets_ext.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/list_item/list_item_gw.dart';
 import 'package:hacom_app_test/app/presentation/modules/vehicles/controller/vehicle_provider.dart';
@@ -88,7 +89,7 @@ class VehiclesView extends ConsumerWidget {
                     return ListItemGW(
                       adaptiveScreen: adaptiveScreen,
                       name: vehicle.name,
-                      color: vehicle.stateType == 1 ? Colors.red : Colors.black,
+                      color: vehicle.stateType.color,
                     );
                   }, childCount: vehicleController.state.vehicles.length),
                 ).sliverPadding(

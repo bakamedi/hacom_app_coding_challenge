@@ -6,8 +6,13 @@ import 'package:hacom_app_test/app/presentation/modules/sign_in/controller/sign_
 import 'package:hacom_app_test/app/presentation/router/app_routes/dashboard_route.dart';
 
 void sendLogin() async {
-  LoaderUtil.show();
   final signInController = signInProvider.read();
+
+  final isValid = signInController.state.formSignIn!.currentState!.validate();
+  if (!isValid) {
+    return;
+  }
+  LoaderUtil.show();
   final response = await signInController.signIn();
 
   response.fold(

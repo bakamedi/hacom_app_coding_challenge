@@ -3,6 +3,7 @@ import 'package:flutter_meedu/consumer/consumer_widget.dart';
 import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/utils/assets_constant.dart';
 import 'package:hacom_app_test/app/presentation/global/extensions/widgets_ext.dart';
+import 'package:hacom_app_test/app/presentation/global/utils/user_validator_util.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/background/background_scaffold_gw.dart';
 import 'package:hacom_app_test/app/presentation/modules/sign_in/controller/sign_in_provider.dart';
 import 'package:hacom_app_test/app/presentation/modules/sign_in/utils/send_login.dart';
@@ -35,56 +36,73 @@ class SignInView extends StatelessWidget {
           Consumer(
             builder: (_, ref, _) {
               final signInController = ref.watch(signInProvider);
-              return Column(
-                spacing: adaptiveScreen.hpx(8),
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Ingrese el nombre de su cuenta',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: adaptiveScreen.sfp(16),
+              return Form(
+                key: signInController.state.formSignIn,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child:
+                    Column(
+                      spacing: adaptiveScreen.hpx(8),
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Ingrese el nombre de su cuenta',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: adaptiveScreen.sfp(16),
+                          ),
+                        ),
+                        TextFormField(
+                          onChanged: signInController.onChangeName,
+                          validator: (value) => UserValidator.isEmpty(
+                            value,
+                            'El nombre no puede estar vacio',
+                          ),
+                        ),
+                        Text(
+                          'Ingrese el número de teléfonico',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: adaptiveScreen.sfp(16),
+                          ),
+                        ),
+                        TextFormField(
+                          onChanged: signInController.onChangePhone,
+                          keyboardType: TextInputType.number,
+                          maxLength: 10,
+                          validator: (value) => UserValidator.isPhone(
+                            value,
+                            'El teléfono no puede estar vacio',
+                            'Tiene que poner un teléfono válido',
+                            'El teléfono tiene que ser númerico',
+                          ),
+                          buildCounter:
+                              (
+                                BuildContext context, {
+                                required int currentLength,
+                                required bool isFocused,
+                                required int? maxLength,
+                              }) {
+                                return null;
+                              },
+                        ),
+                        10.h,
+                        ElevatedButton(
+                          onPressed: () => sendLogin(),
+                          child: Text(
+                            'Ingresar',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: adaptiveScreen.sfp(16),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ).padding(
+                      EdgeInsets.symmetric(horizontal: adaptiveScreen.hpx(40)),
                     ),
-                  ),
-                  TextFormField(onChanged: signInController.onChangeName),
-                  Text(
-                    'Ingrese el número de teléfonico',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: adaptiveScreen.sfp(16),
-                    ),
-                  ),
-                  TextFormField(
-                    onChanged: signInController.onChangePhone,
-                    keyboardType: TextInputType.number,
-                    maxLength: 10,
-                    buildCounter:
-                        (
-                          BuildContext context, {
-                          required int currentLength,
-                          required bool isFocused,
-                          required int? maxLength,
-                        }) {
-                          return null;
-                        },
-                  ),
-                  10.h,
-                  ElevatedButton(
-                    onPressed: () => sendLogin(),
-                    child: Text(
-                      'Ingresar',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: adaptiveScreen.sfp(16),
-                      ),
-                    ),
-                  ),
-                ],
-              ).padding(
-                EdgeInsets.symmetric(horizontal: adaptiveScreen.hpx(40)),
               );
             },
           ),

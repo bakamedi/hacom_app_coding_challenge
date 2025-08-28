@@ -22,7 +22,8 @@ void sendLogin() async {
     },
     (success) async {
       final sessionGC = sessionGP.read();
-      await sessionGC.saveToken(success);
+      await sessionGC.saveToken(success.token);
+      await sessionGC.saveId(success.id.toString());
       LoaderUtil.hide();
       RouterUtil.pushReplacement(DashboardRoute.path);
     },

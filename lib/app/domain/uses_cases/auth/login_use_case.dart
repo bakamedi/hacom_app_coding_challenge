@@ -12,13 +12,13 @@ class LoginUseCase {
 
   final AuthRepository _authRepository;
 
-  FutureEither<FailureViewData, String> call(Login login) async {
+  FutureEither<FailureViewData, UserWithToken> call(Login login) async {
     final result = await _authRepository.login(login);
     return result.fold((failure) => Left(mapFailureToView(failure)), (
       response,
     ) {
       final UserWithToken resToken = response.data;
-      return Right(resToken.token);
+      return Right(resToken);
     });
   }
 }

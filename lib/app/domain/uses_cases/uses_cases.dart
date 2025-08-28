@@ -3,8 +3,10 @@ import 'package:hacom_app_test/app/domain/inject_repository.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/auth/login_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/permissions/request_permission_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/permissions/status_permission_use_case.dart';
+import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/get_id_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/get_token_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/log_out_use_case.dart';
+import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/save_id_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/user_preferences/save_token_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/vehicles/get_vehicles_use_case.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/places/get_places_use_case.dart';
@@ -50,5 +52,15 @@ class UseCases {
 
   static final getPlaces = Provider(
     (ref) => GetPlacesUseCase(placeRepository: Repositories.placeRep.read()),
+  );
+
+  static final saveIdUseCase = Provider(
+    (ref) =>
+        SaveIdUseCase(userPrefsRepository: Repositories.userPrefsRep.read()),
+  );
+
+  static final getIdUseCase = Provider(
+    (ref) =>
+        GetIdUseCase(userPrefsRepository: Repositories.userPrefsRep.read()),
   );
 }

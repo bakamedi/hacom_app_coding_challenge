@@ -23,7 +23,20 @@ class UserPreferencesRepositoryImpl extends UserPreferencesRepository {
       await _storageProvider.writeValue(GlobalNameStorageKeyUtils.TOKEN, '');
       await _storageProvider.deleteValue(GlobalNameStorageKeyUtils.TOKEN);
 
+      await _storageProvider.writeValue(GlobalNameStorageKeyUtils.ID, '');
+      await _storageProvider.deleteValue(GlobalNameStorageKeyUtils.ID);
+
       await _storageProvider.deleteAll();
     } catch (_) {}
+  }
+
+  @override
+  Future<String> getId() async {
+    return _storageProvider.readValue(GlobalNameStorageKeyUtils.ID);
+  }
+
+  @override
+  Future<void> saveId(String id) async {
+    await _storageProvider.writeValue(GlobalNameStorageKeyUtils.ID, id);
   }
 }

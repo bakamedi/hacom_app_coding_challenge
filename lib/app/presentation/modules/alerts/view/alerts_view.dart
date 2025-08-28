@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meedu/consumer.dart';
 import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/utils/app_color_util.dart';
 import 'package:hacom_app_test/app/presentation/global/extensions/widgets_ext.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/list_item/list_item_alert_gw.dart';
+import 'package:hacom_app_test/app/presentation/modules/alerts/controller/alert_provider.dart';
 
-class AlertsView extends StatelessWidget {
+class AlertsView extends ConsumerWidget {
   const AlertsView({super.key, required this.adaptiveScreen});
 
   final AdaptiveScreen adaptiveScreen;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, BuilderRef ref) {
+    final alertController = ref.watch(alertProvider);
+
     return Scaffold(
       backgroundColor: AppColorUtil().surface,
       body: CustomScrollView(
@@ -41,13 +45,20 @@ class AlertsView extends StatelessWidget {
             delegate: _FiltersHeaderDelegate(),
           ),
 
+          if (alertController.state.loading)
+            const SliverFillRemaining(
+              child: Center(child: CircularProgressIndicator()),
+            ),
+
           // Lista de vehículos
           SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
+              final alert = alertController.state.vehicles[index];
+
               return ListItemAlertGW(
                 adaptiveScreen: adaptiveScreen,
-                name: "B1X-${837 + index}",
-                count: (index + 1) * 3,
+                name: alert.name,
+                count: alert.alert,
               );
             }, childCount: 10),
           ),

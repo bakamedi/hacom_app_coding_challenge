@@ -4,6 +4,7 @@ import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/theme/theme_app.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/loader/loader_gw.dart';
 import 'package:hacom_app_test/app/presentation/router/go_router_provider.dart';
+import 'package:toastification/toastification.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,22 +17,24 @@ class MyApp extends StatelessWidget {
 
     final goRouter = goRouterProvider.read();
 
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          routerConfig: goRouter,
-          theme: ThemeApp.lightTheme,
-          //darkTheme: ThemeApp.darkTheme,
-          themeMode: ThemeMode.system,
-          themeAnimationCurve: Curves.easeInOutCubicEmphasized,
-          localizationsDelegates: _getLocalizationsDelegate(),
-          // supportedLocales: L10nLanguages.all,
-          title: _titleApp,
-        ),
-        LoaderGW(adaptiveScreen: adaptiveScreen),
-      ],
+    return ToastificationWrapper(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            routerConfig: goRouter,
+            theme: ThemeApp.lightTheme,
+            //darkTheme: ThemeApp.darkTheme,
+            themeMode: ThemeMode.system,
+            themeAnimationCurve: Curves.easeInOutCubicEmphasized,
+            localizationsDelegates: _getLocalizationsDelegate(),
+            // supportedLocales: L10nLanguages.all,
+            title: _titleApp,
+          ),
+          LoaderGW(adaptiveScreen: adaptiveScreen),
+        ],
+      ),
     );
   }
 

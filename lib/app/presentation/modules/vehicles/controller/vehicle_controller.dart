@@ -1,5 +1,6 @@
 import 'package:flutter_meedu/notifiers.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/vehicles/get_vehicles_use_case.dart';
+import 'package:hacom_app_test/app/presentation/global/utils/toast_util.dart';
 import 'package:hacom_app_test/app/presentation/modules/vehicles/controller/vehicle_state.dart';
 
 class VehiclesController extends StateNotifier<VehicleState> {
@@ -25,6 +26,7 @@ class VehiclesController extends StateNotifier<VehicleState> {
       (vehicles) {
         // éxito, actualizar la lista de vehículos
         onlyUpdate(state = state.copyWith(vehicles: vehicles));
+        ToastUtil.show(message: 'Vehiculos obtenidos satisfactoriamente');
       },
     );
   }

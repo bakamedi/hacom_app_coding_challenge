@@ -1,5 +1,6 @@
 import 'package:flutter_meedu/notifiers.dart';
 import 'package:hacom_app_test/app/domain/uses_cases/vehicles/get_vehicles_use_case.dart';
+import 'package:hacom_app_test/app/presentation/global/utils/toast_util.dart';
 import 'package:hacom_app_test/app/presentation/modules/alerts/controller/alert_state.dart';
 
 class AlertController extends StateNotifier<AlertState> {
@@ -20,13 +21,10 @@ class AlertController extends StateNotifier<AlertState> {
     response.fold(
       (failure) {
         onlyUpdate(state = state.copyWith(loading: false));
-
-        // manejar el error, por ejemplo guardarlo en el estado
       },
       (vehicles) {
-        // éxito, actualizar la lista de vehículos
-
         onlyUpdate(state = state.copyWith(vehicles: vehicles, loading: false));
+        ToastUtil.show(message: 'Notificaciones obtenidos satisfactoriamente');
       },
     );
   }

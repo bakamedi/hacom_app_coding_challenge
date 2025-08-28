@@ -50,18 +50,21 @@ class AlertsView extends ConsumerWidget {
               child: Center(child: CircularProgressIndicator()),
             ),
 
-          // Lista de vehículos
-          SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-              final alert = alertController.state.vehicles[index];
+          if (alertController.state.vehicles.isEmpty)
+            SliverFillRemaining(child: Text('No hay notificaciones').center()),
+          if (alertController.state.vehicles.isNotEmpty)
+            // Lista de vehículos
+            SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final alert = alertController.state.vehicles[index];
 
-              return ListItemAlertGW(
-                adaptiveScreen: adaptiveScreen,
-                name: alert.name,
-                count: alert.alert,
-              );
-            }, childCount: 10),
-          ),
+                return ListItemAlertGW(
+                  adaptiveScreen: adaptiveScreen,
+                  name: alert.name,
+                  count: alert.alert,
+                );
+              }, childCount: 10),
+            ),
         ],
       ),
     );

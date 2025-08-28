@@ -5,6 +5,7 @@ import 'package:hacom_app_test/app/presentation/global/controllers/session/sessi
 import 'package:hacom_app_test/app/presentation/router/app_routes/alerts_route.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/all_vehicles_route.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/dashboard_route.dart';
+import 'package:hacom_app_test/app/presentation/router/app_routes/place_map_route.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/places_route.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/sign_in_route.dart';
 import 'package:hacom_app_test/app/presentation/router/app_routes/vehicles_route.dart';
@@ -22,6 +23,7 @@ final goRouterProvider = Provider((ref) {
       AlertsRoute.route,
       PlacesRoute.route,
       AllVehiclesRoute.route,
+      PlaceMapRoute.route,
     ],
     debugLogDiagnostics: true,
     redirect: (context, state) async {

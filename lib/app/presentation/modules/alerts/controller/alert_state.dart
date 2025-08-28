@@ -12,5 +12,5 @@ abstract class AlertState with _$AlertState {
     @Default(true) bool loading,
   }) = _AlertState;
 
-  static AlertState get initialState => const AlertState();
+  static AlertState get initialState => const AlertState(vehicles: []);
 }

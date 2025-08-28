@@ -3,6 +3,7 @@ import 'package:flutter_meedu/consumer.dart';
 import 'package:hacom_app_test/app/core/adaptive_screen/adaptive_screen.dart';
 import 'package:hacom_app_test/app/core/utils/app_color_util.dart';
 import 'package:hacom_app_test/app/presentation/global/widgets/list_item/list_item_place_gw.dart';
+import 'package:hacom_app_test/app/presentation/modules/place_map/utils/tap_map.dart';
 import 'package:hacom_app_test/app/presentation/modules/places/controller/place_provider.dart';
 
 class PlacesView extends ConsumerWidget {
@@ -53,6 +54,7 @@ class PlacesView extends ConsumerWidget {
             delegate: SliverChildBuilderDelegate((context, index) {
               final item = placeController.state.places[index];
               return ListItemPlaceGW(
+                onTap: () => tapMap(item),
                 adaptiveScreen: adaptiveScreen,
                 name: item.name,
               );

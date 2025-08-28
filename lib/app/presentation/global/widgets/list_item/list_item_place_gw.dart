@@ -7,10 +7,12 @@ class ListItemPlaceGW extends StatelessWidget {
     super.key,
     required this.adaptiveScreen,
     required this.name,
+    this.onTap,
   });
 
   final AdaptiveScreen adaptiveScreen;
   final String name;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class ListItemPlaceGW extends StatelessWidget {
         ),
       ),
       child: ListTile(
+        onTap: onTap,
         contentPadding: EdgeInsets.symmetric(
           vertical: adaptiveScreen.hpx(10),
           horizontal: adaptiveScreen.wpx(10),

@@ -16,15 +16,17 @@ class AlertController extends StateNotifier<AlertState> {
     onlyUpdate(state = state.copyWith(loading: true));
 
     final response = await _getVehiclesUseCase.call();
-    onlyUpdate(state = state.copyWith(loading: false));
 
     response.fold(
       (failure) {
+        onlyUpdate(state = state.copyWith(loading: false));
+
         // manejar el error, por ejemplo guardarlo en el estado
       },
       (vehicles) {
         // éxito, actualizar la lista de vehículos
-        onlyUpdate(state = state.copyWith(vehicles: vehicles));
+
+        onlyUpdate(state = state.copyWith(vehicles: vehicles, loading: false));
       },
     );
   }

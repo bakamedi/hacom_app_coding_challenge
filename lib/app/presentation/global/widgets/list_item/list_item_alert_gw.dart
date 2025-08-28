@@ -9,10 +9,12 @@ class ListItemAlertGW extends StatelessWidget {
     required this.adaptiveScreen,
     required this.name,
     required this.count,
+    this.onTap,
   });
   final AdaptiveScreen adaptiveScreen;
   final String name;
   final int count;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class ListItemAlertGW extends StatelessWidget {
         ),
       ),
       child: ListTile(
+        onTap: onTap,
         contentPadding: EdgeInsets.zero,
         leading: SizedBox(
           height: adaptiveScreen.hpx(80),
